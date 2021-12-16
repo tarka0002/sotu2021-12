@@ -10,7 +10,15 @@ app.config['SECRET_KEY'] = "berufaiakudasai"
 
 @app.route("/")
 def hellowould():
-    return render_template("top.html")
+    conn=sqlite3.connect("todo.db")
+    c=conn.cursor()
+    c.execute("select id,cap from kaisya")
+    cap = []
+    for row in c.fetchall():
+        cap.append({"id":row[0],"name":row[1]})
+    # print(cap)
+    c.close()
+    return render_template("top.html",cap=cap)
     
 
 # @app.route("/<login>")
@@ -39,10 +47,10 @@ def hellowould():
 #     else:
 #         return render_template("login.html")
 
-@app.route("/")
-def template():
-    py_name = "あまくさ"
-    return render_template("index.html", name = py_name)
+# @app.route("/")
+# def template():
+#     py_name = "あまくさ"
+#     return render_template("index.html", name = py_name)
 
 @app.route("/login",methods=["GET"])
 def login_get():
@@ -132,6 +140,15 @@ def list():
         syaryou.append({"veh":row[0],"namber":row[1]})
     c.close()
     return render_template("list.html",syaryou=syaryou)
+
+@app.route('/cap/<int:id>')
+def cap(id):
+    conn=sqlite3.connect("todo.db")
+    c=conn.cursor()
+    c.execute("select cap,pos,address,tel,fax from kaisya where id = ?",(id,))
+    cap_list = c.fetchone()
+    c.close()
+    return render_template("cap.html",cap_list=cap_list)
 
 if __name__ == "__main__":
 

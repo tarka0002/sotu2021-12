@@ -5,9 +5,16 @@
         <div><img class="toptrack" src="static/img/photo0.JPG"></div>
     </div>
     <div class="rowarea">
-        <div class="cellarea">会社の画像・会社名</div>
-        <div class="cellarea">取引会社のアドレス帳</div>
-        <div class="cellarea">会社の画像・会社名</div>
+        <div class="cellarea">
+            <h3>会社の画像・会社名</h3>
+            <ul>
+            {% for low in cap %}
+                <li><a href="/cap/{{low['id']}}">{{low["name"]}}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        <!-- <div class="cellarea">取引会社のアドレス帳</div>
+        <div class="cellarea">会社の画像・会社名</div> -->
     </div>
 </div>
 
