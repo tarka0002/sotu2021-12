@@ -1,0 +1,21 @@
+{% extends "base.html"%}
+
+{% block content %}
+<table border="1">
+    <tr>
+        <td>車種</td>
+        <td>車番</td>
+    </tr>
+    {% for item in task_list %}
+    <tr>
+        <td>{{item["veh"]}}</td>
+        <td>{{item["nenber"]}}</td>
+        <td><a href="/add/{{item['flg']}}">可</a></td>
+        <td><a href="/add/{{item['flg']}}">不可</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<button><a href="/add">更新</a></button>
+
+{% endblock %}

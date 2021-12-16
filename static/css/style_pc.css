@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+html {
+	overflow-y: scroll;
+	/* IEへの対応 http://www.htmq.com/style/overflow-y.shtml */
+	/*Internet Explorerが独自に追加したプロパティ*/
+	/*画面に収まりきれなかったときにスクロールして表示することを許可するか否か*/
+}
+
+/* リセットおまじない--------------------------------- */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background: #fff;
+	text-align: center;
+	font-size: 16px;
+	line-height: 1.4;
+	min-width: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	outline: none;
+	color: inherit;
+	text-decoration: none;
+}
+
+/* ここまでヘッダー */
+img {
+	border: 0px;
+	vertical-align: bottom;
+}
+
+/* --------------------------------------------------- */
+
+body {
+	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, Century Gothic, Arial;
+}
+
+.sotowaku{
+	text-align: center;
+	margin: 10px auto;
+}
+
+.gyou1{
+	display: flex;
+	flex-direction: row;
+	
+}
+
+.mainarea {
+	display: flex;
+	flex-direction: column;
+	margin: 5px auto;
+	/* border: 1px solid #f00; */
+}
+
+.mainarea .rowarea {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 5px auto;
+	width: 1000px;
+	/* border: 1px solid #0f0; */
+}
+
+.mainarea .rowarea .cellarea{
+	margin: 5px 5px;
+	width: 330px;
+	height: 330px;
+	border: 1px solid #ccc;
+}
+
+.toptrack {
+	width: 900px;
+	height: 150px;
+}
+
+/* header {
+	height: 60px;
+	background: #eeeaec;
+	text-align: center;
+	position: relative;
+	top:0px;
+	width: 100%;
+} */
+
+header ul {
+	width: 800px;
+	margin: auto;
+	display: flex;
+}
+
+header li {
+	color: #acacac;
+	width: 50%;
+	line-height: 60px;
+	transition: 0.2s;
+	text-align: right;
+	/*メニューをホバーした時の変化時間*/
+}
+
+header li:hover {
+	/*メニューをホバーしたときに色が変わる*/
+	color: #111;
+}
+
+section {
+	text-align: center;
+	padding: 100px 0;
+}
+
+section h1 {
+	font-size: 40px;
+	line-height: 50px;
+	margin: 0 0 80px 0;
+	font-weight: 200;
+}
+
+.box {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+#sec1 {
+	background: url(../img/photo_01.png) no-repeat center center;
+	height: 400px;
+	background-size: cover;
+}
+
+#sec1 h1 {
+	font-size: 55px;
+	color: #fff;
+	padding: 200px 0 0 0;
+}
+
+#sec1 h1 br {
+	display: none;
+	/* スマートフォンとPCでは画面幅が違うので、PC用のレイアウトでいれた改行が */
+	/* スマートフォン用のレイアウトできれいに改行されるとは限らないので none で消す */
+}
+
+#sec2 .flex_area {
+	display: flex;
+}
+
+#sec2 .flex_area div h2 {
+	font-size: 20px;
+	margin: 0 0 20px 0;
+}
+
+#sec2 .flex_area div p {
+	font-size: 14px;
+	line-height: 1.8;
+	margin-bottom: 14px;
+}
+
+#sec3 {
+	background: url(../img/photo_02.png) no-repeat center center;
+	background-size: cover;
+	color: #fff;
+	background-attachment: fixed;
+}
+
+#sec3 p {
+	font-size: 16px;
+	line-height: 2;
+	margin-bottom: 16px;
+}
+
+#sec4 p {
+	font-size: 15px;
+	line-height: 2;
+	margin-bottom: 15px;
+}
+#sec4 .p1 {
+	padding-top: 100px;
+}
+
+#sec4 .port .portfolio {
+	width: 90%;
+	margin: 40px auto;
+	text-align: left;
+	display: flex;
+}
+
+#sec4 .port .portfolio img {
+	width: 100%;
+}
+
+#sec4 .port .portfolio p {
+	font-size: 14px;
+	margin: 5px 0;
+}
+
+#sec4 .port .portfolio p.port_title {
+	text-align: center;
+	font-size: 18px;
+}
+
+footer {
+	height: 80px;
+	background: #eeeaec;
+	width: 100%;
+}
+
+footer .copyright {
+	color: #acacac;
+	font-size: 12px;
+	padding-top: 30px;
+	letter-spacing: 1px;
+}

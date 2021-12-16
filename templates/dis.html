@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" media="screen and ( min-width:769px )" href="css/style_pc.css">
+	<link rel="stylesheet" type="text/css" media="screen and ( max-width:768px )" href="css/style_sp.css">
+	<script src="./js/jquery-3.6.0.min.js"></script>
+	<script src="./js/common.js"></script>
+    <title>か・わ・り 者 リストページ</title>
+</head>
+<body>
+    <h1 style="background-color: gray;">かわりものロゴ <a href="/logput">ログアウト</a></h1>
+{% extends "base.html"%}
+{% block content %}
+
+<table border="1">
+    <tr>
+        <td>会社名</td>
+        <td>車種</td>
+        <td>台数</td>
+        <td>電話番号</td>
+        <td>ＦＡＸ番号</td>
+    </tr>
+    {% for item in task_list %}
+    <tr>
+        <td>{{item["cap"]}}</td>
+        <td>{{item["veh"]}}</td>
+        <td>{{item["id"]}}</td>
+        <td>{{item["tel"]}}</td>
+        <td>{{item["fax"]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+
+{% endblock %}
+
+<h1 style="background-color: gray;">©️2021 SUNABACOamakusa か・わ・り 者</h1>
+</body>
+</html>

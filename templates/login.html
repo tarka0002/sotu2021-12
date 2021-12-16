@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <form action="/login" method="post">
+        <p>     ログイン名：<input type="text" name="login_id"></p>
+        <p>パスワード：<input type="password" name="password"></p>
+        <input type="submit" name="save" value="ログイン">  
+    </form>                                                                                                                                                                                         
+    
+{% endblock %}
