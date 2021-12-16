@@ -46,21 +46,21 @@ def template():
 
 @app.route("/login",methods=["GET"])
 def login_get():
-    #if "user_id" in session:
-    #   return redirect("/list")
-    #else:
+    if "uid" in session:
+        return redirect("/mypage")
+    else:
         return render_template("login.html")
+
 
 @app.route("/login",methods=["POST"])
 def login_post():
-    user_name = request.form.get("login_id")
+    email = request.form.get("email")
     password = request.form.get("password")
-    print(user_name)
-    print(password)
     conn=sqlite3.connect("todo.db")
     c=conn.cursor()
-    c.execute("select * from login where login_id = ? and password = ?",(user_name,password))
+    c.execute("select * from user where email = ? and pass = ?",(email,password))
     row = c.fetchone()
+    print(row)
     if row is None:
         return render_template("login.html")
     c.close()
@@ -72,18 +72,66 @@ def mypage():
     id=session.get("uid")
     conn=sqlite3.connect("todo.db")
     c=conn.cursor()
-    c.execute("select * from login where id = ?",(id,))
-    row = c.fetchone()
+    c.execute("select * from user where id = ?",(id,))
+    user = c.fetchone()
+    c.execute("select veh,namber from syasyu where cop_id = ?",(id,))
+    # car = c.fetchall()
+    # print(car)
+    sharyou = []
+    for row in c.fetchall():
+        sharyou.append({"veh":row[0],"namber":row[1]})
     c.close()
     conn.close()
-    if row == None:
+    if user == None:
         return redirect("login")
-    return render_template("my.html")
+    return render_template("my.html",user=user,sharyou = sharyou)
 
 @app.route("/new")
 def newpage():
     return render_template("new.html")
 
+@app.route("/regist",methods=["POST"])
+def regist():
+    name = request.form.get("cop")
+    password = request.form.get("password")
+    email = request.form.get("email")
+    conn=sqlite3.connect("todo.db")
+    c=conn.cursor()
+    c.execute("insert into user values(null,?,?,?)",(name,password,email))
+    conn.commit()
+    c.close()
+    return redirect("/login")
+@app.route("/add",methods=["GET"])
+def add_get():
+    return render_template("add.html")
+
+@app.route("/add",methods=["POST"])
+def add_post():
+    id = session["uid"]
+    syasyu = request.form.get("syasyu")
+    namber = request.form.get("namber")
+    conn=sqlite3.connect("todo.db")
+    c=conn.cursor()
+    c.execute("insert into syasyu values(null,?,?,?,0)",(syasyu,namber,id))
+    conn.commit()
+    c.close()
+    return redirect("/mypage")
+
+@app.route("/logout")
+def logout():
+    session.pop("uid",None)
+    return redirect("/")
+
+@app.route("/list")
+def list():
+    conn=sqlite3.connect("todo.db")
+    c=conn.cursor()
+    c.execute("select veh,namber from syasyu")
+    syaryou = []
+    for row in c.fetchall():
+        syaryou.append({"veh":row[0],"namber":row[1]})
+    c.close()
+    return render_template("list.html",syaryou=syaryou)
 
 if __name__ == "__main__":
 

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <form action="/add" method="post">
+        <p>車種名：<input type="text" name="syasyu"></p>
+        <p>ナンバー:<input type="text" name="namber"></p>
+        <input type="submit" name="save" value="登録">  
+    </form>                                                                                                                                                                                         
+    
+    <button><a href="/mypage">戻る</a></button>
+
+{% endblock %}

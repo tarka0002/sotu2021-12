@@ -84,6 +84,11 @@ body {
 	/* border: 1px solid #0f0; */
 }
 
+.mainarea .rowarea img{
+	height: auto;
+	width: 50%;
+}
+
 .mainarea .rowarea .cellarea{
 	margin: 5px 5px;
 	width: 330px;

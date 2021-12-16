@@ -1,14 +1,13 @@
-{% extends "base.html"%}
-
+{% extends "base.html" %}
 {% block content %}
-<h1>{{user[1]}}様</h1>
+<h1>車両リスト</h1>
 <table border="1">
     <tr>
         <td>車種</td>
         <td>車番</td>
         <!-- <td>利用</td> -->
     </tr>
-    {% for item in sharyou %}
+    {% for item in syaryou %}
     <tr>
         <td>{{item["veh"]}}</td>
         <td>{{item["namber"]}}</td>
