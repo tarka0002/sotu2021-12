@@ -134,10 +134,10 @@ def logout():
 def list():
     conn=sqlite3.connect("todo.db")
     c=conn.cursor()
-    c.execute("select veh,namber from syasyu")
+    c.execute("select veh,namber,flag from syasyu")
     syaryou = []
     for row in c.fetchall():
-        syaryou.append({"veh":row[0],"namber":row[1]})
+        syaryou.append({"veh":row[0],"namber":row[1], "flag": "可" if int(row[2]) == 0 else "不可"})
     c.close()
     return render_template("list.html",syaryou=syaryou)
 
