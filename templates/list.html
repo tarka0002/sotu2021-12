@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>車両リスト</h1>
-<table border="1">
-    <tr>
-        <td>車種</td>
-        <td>車番</td>
+<table border="0" class="cartable">
+    <tr class="carrow">
+        <td class="carcellleft" style="text-align: center">車種</td>
+        <td class="carcellcenter" style="text-align: center">車番</td>
+        <td class="carcellright" style="text-align: center"><input type="checkbox" name="ka" value="1">可　<input type="checkbox" name="fuka" value="1">不可</td>
         <!-- <td>利用</td> -->
     </tr>
     {% for item in syaryou %}
-    <tr>
-        <td>{{item["veh"]}}</td>
-        <td>{{item["namber"]}}</td>
+    <tr class="carrow">
+        <td class="carcellleft">{{item["veh"]}}</td>
+        <td class="carcellcenter">{{item["namber"]}}</td>
+        <td class="carcellright">{{item["flag"]}}</td>
         <!-- <td><a href="/add/{{item['flg']}}">可</a></td>
         <td><a href="/add/{{item['flg']}}">不可</a></td> -->
         <!-- <td>{{item['flg']}}</td> -->

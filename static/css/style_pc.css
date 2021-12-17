@@ -98,6 +98,45 @@ body {
 	align-content: column; */
 }
 
+.cartable {
+	/* border: 1px solid #888; */
+	width: 800px;
+	margin: 5px auto;
+}
+
+.carrow {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+.carcellleft {
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.carcellcenter {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	text-align: right;
+	margin-right: 0px;
+	padding-right: 0px;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+.carcellright {
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
 .toptrack {
 	width: 900px;
 	height: 150px;
