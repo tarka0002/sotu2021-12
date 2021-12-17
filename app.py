@@ -137,7 +137,7 @@ def list():
     c.execute("select veh,namber,flag from syasyu")
     syaryou = []
     for row in c.fetchall():
-        syaryou.append({"veh":row[0],"namber":row[1], "flag": "可" if int(row[2]) == 0 else "不可"})
+        syaryou.append({"veh":row[0],"namber":row[1], "flag": " checked" if int(row[2]) == 0 else ""})
     c.close()
     return render_template("list.html",syaryou=syaryou)
 
